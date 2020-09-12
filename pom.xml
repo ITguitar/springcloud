@@ -11,6 +11,8 @@
 
   <modules>
     <module>springcloud-provider-payment</module>
+    <module>springcloud-customer-order80</module>
+      <module>springcloud-api-commons</module>
   </modules>
 
   <!--统一管理jar包版本-->
@@ -73,4 +75,5 @@
       </dependency>
     </dependencies>
   </dependencyManagement>
+
 </project>
