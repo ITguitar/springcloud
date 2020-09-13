@@ -18,7 +18,8 @@ import javax.annotation.Resource;
 @RequestMapping("/customer/order")
 public class OrderController {
 
-    public static final String PAYMENT_URL = "http://localhost:8001";
+    //public static final String PAYMENT_URL = "http://localhost:8001";
+    public static final String PAYMENT_URL = "http://SPRINGCLOUD-PROVIDER-PAYMENT-SERVICE";
 
     @Resource
     private RestTemplate restTemplate;
@@ -26,12 +27,12 @@ public class OrderController {
 
     @PostMapping("/insert")
     public CommonResult<Payment> insert(@RequestBody Payment payment){
-        return restTemplate.postForObject(PAYMENT_URL + "payment/insert", payment, CommonResult.class);
+        return restTemplate.postForObject(PAYMENT_URL + "/payment/insert", payment, CommonResult.class);
     }
 
     @GetMapping("/getPaymentById/{id}")
     public CommonResult<Payment> getPaymentById(@PathVariable("id") Long id){
-        return restTemplate.getForObject(PAYMENT_URL + "payment/selectById/" + id, CommonResult.class);
+        return restTemplate.getForObject(PAYMENT_URL + "/payment/selectById/" + id, CommonResult.class);
     }
 
 }
